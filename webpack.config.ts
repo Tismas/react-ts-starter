@@ -1,26 +1,25 @@
-import * as path from 'path'
-import { Configuration } from 'webpack'
-import HtmlWebpackPlugin = require('html-webpack-plugin')
+import * as path from 'path';
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config: Configuration = {
-  mode: 'development',
   entry: ['babel-polyfill', './src/index.tsx'],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', '.ts', '.tsx'],
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: './public/index.html'
-    })
+      template: './public/index.html',
+    }),
   ],
   module: {
     rules: [
@@ -28,11 +27,11 @@ const config: Configuration = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader'
-        }
-      }
-    ]
-  }
-}
+          loader: 'ts-loader',
+        },
+      },
+    ],
+  },
+};
 
-module.exports = config
+module.exports = config;
