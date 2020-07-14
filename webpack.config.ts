@@ -1,8 +1,9 @@
 import * as path from 'path';
-import { Configuration } from 'webpack';
+import Webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 import HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config: Configuration = {
+const config: Webpack.Configuration & { devServer: WebpackDevServer.Configuration } = {
   entry: ['babel-polyfill', './src/index.tsx'],
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],

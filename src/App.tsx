@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
     <div>
       <Header>Hello world</Header>
