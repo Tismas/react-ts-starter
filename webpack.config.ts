@@ -1,15 +1,11 @@
-import * as path from 'path';
-import Webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import Webpack, { WebpackPluginInstance } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const config: Webpack.Configuration & { devServer: WebpackDevServer.Configuration } = {
+const config: Webpack.Configuration = {
   entry: ['babel-polyfill', './src/index.tsx'],
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
-  },
-  devServer: {
-    historyApiFallback: true,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,10 +13,10 @@ const config: Webpack.Configuration & { devServer: WebpackDevServer.Configuratio
     publicPath: '/',
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    (new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-    }),
+    }) as unknown) as WebpackPluginInstance,
   ],
   module: {
     rules: [
