@@ -7,7 +7,7 @@
     "start": "webpack serve",
     "lint": "eslint .",
     "test": "jest",
-    "build": "webpack -p"
+    "build": "webpack"
   },
   "dependencies": {
     "react": "^17.0.1",
