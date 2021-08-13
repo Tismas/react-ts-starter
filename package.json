@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve",
     "start": "webpack serve",
-    "lint": "eslint .",
+    "lint": "eslint ./src",
     "test": "jest",
     "build": "webpack"
   },
