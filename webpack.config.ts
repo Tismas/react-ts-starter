@@ -1,9 +1,10 @@
 import path from 'path';
-import Webpack, { WebpackPluginInstance } from 'webpack';
+import Webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config: Webpack.Configuration = {
   entry: ['babel-polyfill', './src/index.tsx'],
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
   },
@@ -13,10 +14,10 @@ const config: Webpack.Configuration = {
     publicPath: '/',
   },
   plugins: [
-    (new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-    }) as unknown) as WebpackPluginInstance,
+    }),
   ],
   module: {
     rules: [
