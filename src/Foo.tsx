@@ -1,7 +1,5 @@
 import React from 'react';
 
-export class Foo extends React.Component {
-  render() {
-    return <h1>Foo</h1>;
-  }
-}
+export const Foo: React.FC = () => {
+  return <h1>Foo</h1>;
+};
