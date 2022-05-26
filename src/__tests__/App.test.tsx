@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 
 import { App } from '../App';
 
-test('allows the user to login successfully', async () => {
+test('should render correctly', async () => {
   const { getByText } = render(<App />);
-  getByText('Hello world');
+  getByText('React TS starter');
 });

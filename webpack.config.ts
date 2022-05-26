@@ -1,10 +1,10 @@
 import path from 'path';
-import Webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import type { WebpackConfiguration } from 'webpack-dev-server'
 
 const isProduction = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const config: Webpack.Configuration = {
+const config: WebpackConfiguration = {
   entry: ['babel-polyfill', './src/index.tsx'],
   mode: isProduction,
   resolve: {
@@ -21,6 +21,11 @@ const config: Webpack.Configuration = {
       template: './public/index.html',
     }),
   ],
+  devServer: {
+    historyApiFallback: {
+      index: 'index.html'
+    }
+  },
   module: {
     rules: [
       {
